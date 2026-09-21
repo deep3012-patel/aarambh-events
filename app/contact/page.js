@@ -4,12 +4,12 @@ import { MessageCircle, Phone, MapPin, ArrowUpRight } from "lucide-react";
 
 export default function Contact() {
   return (
-    <main className="min-h-screen bg-[#FFFDF8]">
+    <main className="min-h-screen w-full max-w-full overflow-x-hidden bg-[#FFFDF8]">
       <Navbar />
 
       {/* ================= HERO ================= */}
-      <section className="px-8 pb-24 pt-40 md:px-14 lg:px-20">
-        <div className="mx-auto max-w-7xl">
+      <section className="w-full px-5 pb-16 pt-28 sm:px-6 sm:pb-20 sm:pt-32 md:px-14 md:pb-24 md:pt-40 lg:px-20">
+        <div className="mx-auto w-full max-w-7xl min-w-0">
           <div className="mb-8 flex items-center gap-4">
             <span className="text-[9px] font-semibold uppercase tracking-[0.4em] text-[#6B0F1A]">
               04 — Let&apos;s Connect
@@ -21,7 +21,7 @@ export default function Contact() {
           <div className="grid gap-16 lg:grid-cols-2 lg:items-end">
             {/* LEFT */}
             <div>
-              <h1 className="font-serif text-7xl leading-[0.8] tracking-[-0.04em] text-[#5A4636] md:text-8xl lg:text-[9rem]">
+              <h1 className="max-w-full break-words font-serif text-[4.15rem] leading-[0.84] tracking-[-0.045em] text-[#5A4636] sm:text-6xl md:text-8xl lg:text-[9rem]">
                 Let&apos;s
                 <br />
                 Create
@@ -31,14 +31,14 @@ export default function Contact() {
             </div>
 
             {/* RIGHT */}
-            <div className="max-w-xl lg:pb-4">
-              <p className="text-lg leading-8 text-[#5A4636]/70">
+            <div className="min-w-0 max-w-xl lg:pb-4">
+              <p className="max-w-prose text-base leading-7 text-[#5A4636]/70 sm:text-lg sm:leading-8">
                 Have an event in mind? Tell us about it. Whether it&apos;s an
                 intimate celebration or a grand production, we&apos;d love to
                 hear your vision.
               </p>
 
-              <p className="mt-5 text-sm leading-7 text-[#5A4636]/55">
+              <p className="mt-4 max-w-prose text-[13px] leading-6 text-[#5A4636]/55 sm:mt-5 sm:text-sm sm:leading-7">
                 Let&apos;s meet, discuss your ideas and turn them into an
                 experience worth remembering.
               </p>
@@ -48,22 +48,22 @@ export default function Contact() {
       </section>
 
       {/* ================= CONTACT PANEL ================= */}
-      <section className="px-8 pb-28 md:px-14 lg:px-20">
-        <div className="mx-auto max-w-7xl">
+      <section className="w-full px-5 pb-20 sm:px-6 md:px-14 md:pb-28 lg:px-20">
+        <div className="mx-auto w-full max-w-7xl min-w-0">
           <div className="grid overflow-hidden bg-[#6B0F1A] lg:grid-cols-2">
             {/* ================= LEFT ================= */}
-            <div className="px-8 py-14 md:px-14 md:py-20">
+            <div className="min-w-0 px-6 py-10 sm:px-8 sm:py-14 md:px-14 md:py-20">
               <p className="text-[9px] font-semibold uppercase tracking-[0.35em] text-[#C9A24A]">
                 Start A Conversation
               </p>
 
-              <h2 className="mt-6 max-w-lg font-serif text-5xl leading-[0.9] text-white md:text-6xl">
+              <h2 className="mt-5 max-w-lg font-serif text-[2.9rem] leading-[0.9] text-white sm:text-5xl md:text-6xl">
                 Your Moment.
                 <br />
                 Our Craft.
               </h2>
 
-              <p className="mt-8 max-w-md text-sm leading-7 text-white/65">
+              <p className="mt-6 max-w-md text-[13px] leading-6 text-white/65 sm:mt-8 sm:text-sm sm:leading-7">
                 Reach out to our team directly and let&apos;s start planning
                 your next celebration.
               </p>
@@ -73,7 +73,7 @@ export default function Contact() {
                 href="https://wa.me/917285883168"
                 target="_blank"
                 rel="noreferrer"
-                className="mt-10 flex max-w-md items-center justify-between border border-[#C9A24A]/50 px-6 py-5 text-white transition hover:bg-[#C9A24A] hover:text-[#5A4636]"
+                className="mt-8 flex w-full max-w-md min-w-0 items-center justify-between gap-3 border border-[#C9A24A]/50 px-4 py-4 text-white transition hover:bg-[#C9A24A] hover:text-[#5A4636] sm:mt-10 sm:px-6 sm:py-5"
               >
                 <div className="flex items-center gap-4">
                   <MessageCircle size={22} strokeWidth={1.5} />
@@ -92,18 +92,18 @@ export default function Contact() {
             </div>
 
             {/* ================= RIGHT ================= */}
-            <div className="bg-[#F7E7E2] px-8 py-14 md:px-14 md:py-20">
+            <div className="min-w-0 bg-[#F7E7E2] px-6 py-10 sm:px-8 sm:py-14 md:px-14 md:py-20">
               <p className="text-[9px] font-semibold uppercase tracking-[0.35em] text-[#6B0F1A]">
                 Connect With Us
               </p>
 
-              <div className="mt-10 space-y-8">
+              <div className="mt-8 min-w-0 space-y-7 sm:mt-10 sm:space-y-8">
                 {/* ================= INSTAGRAM ================= */}
                 <a
                   href="https://www.instagram.com/aarambh_events_and_production/"
                   target="_blank"
                   rel="noreferrer"
-                  className="group flex items-center justify-between border-b border-[#C9A24A]/40 pb-7"
+                  className="group flex min-w-0 items-start justify-between gap-3 border-b border-[#C9A24A]/40 pb-6 sm:gap-4 sm:pb-7"
                 >
                   <div className="flex items-center gap-5">
                     <div className="flex h-6 w-6 items-center justify-center text-[#6B0F1A]">
@@ -115,7 +115,7 @@ export default function Contact() {
                         Instagram
                       </p>
 
-                      <p className="mt-1 font-serif text-2xl text-[#5A4636]">
+                      <p className="mt-1 max-w-full break-all font-serif text-lg leading-tight text-[#5A4636] sm:text-2xl">
                         @aarambh_events_and_production
                       </p>
                     </div>
@@ -133,7 +133,7 @@ export default function Contact() {
                   {/* NUMBER 1 */}
                   <a
                     href="tel:+917285883168"
-                    className="group flex items-center justify-between border-b border-[#C9A24A]/40 pb-6"
+                    className="group flex min-w-0 items-center justify-between gap-3 border-b border-[#C9A24A]/40 pb-5 sm:gap-4 sm:pb-6"
                   >
                     <div className="flex items-center gap-5">
                       <Phone
@@ -147,7 +147,7 @@ export default function Contact() {
                           Call Us
                         </p>
 
-                        <p className="mt-1 font-serif text-2xl text-[#5A4636]">
+                        <p className="mt-1 max-w-full break-all font-serif text-lg leading-tight text-[#5A4636] sm:text-2xl">
                           +91 72858 83168
                         </p>
                       </div>
@@ -162,7 +162,7 @@ export default function Contact() {
                   {/* NUMBER 2 */}
                   <a
                     href="tel:+919662035111"
-                    className="group flex items-center justify-between border-b border-[#C9A24A]/40 pb-6"
+                    className="group flex min-w-0 items-center justify-between gap-3 border-b border-[#C9A24A]/40 pb-5 sm:gap-4 sm:pb-6"
                   >
                     <div className="flex items-center gap-5">
                       <Phone
@@ -176,7 +176,7 @@ export default function Contact() {
                           Call Us
                         </p>
 
-                        <p className="mt-1 font-serif text-2xl text-[#5A4636]">
+                        <p className="mt-1 max-w-full break-all font-serif text-lg leading-tight text-[#5A4636] sm:text-2xl">
                           +91 96620 35111
                         </p>
                       </div>
@@ -191,7 +191,7 @@ export default function Contact() {
                   {/* NUMBER 3 */}
                   <a
                     href="tel:+919727097749"
-                    className="group flex items-center justify-between border-b border-[#C9A24A]/40 pb-6"
+                    className="group flex min-w-0 items-center justify-between gap-3 border-b border-[#C9A24A]/40 pb-5 sm:gap-4 sm:pb-6"
                   >
                     <div className="flex items-center gap-5">
                       <Phone
@@ -205,7 +205,7 @@ export default function Contact() {
                           Call Us
                         </p>
 
-                        <p className="mt-1 font-serif text-2xl text-[#5A4636]">
+                        <p className="mt-1 max-w-full break-all font-serif text-lg leading-tight text-[#5A4636] sm:text-2xl">
                           +91 97270 97749
                         </p>
                       </div>
@@ -231,7 +231,7 @@ export default function Contact() {
                       Based In
                     </p>
 
-                    <p className="mt-1 font-serif text-2xl text-[#5A4636]">
+                    <p className="mt-1 max-w-full break-all font-serif text-lg leading-tight text-[#5A4636] sm:text-2xl">
                       Surat, Gujarat
                     </p>
                   </div>
@@ -243,8 +243,8 @@ export default function Contact() {
       </section>
 
       {/* ================= OWNERS ================= */}
-      <section className="bg-[#F7E7E2] px-8 py-28 md:px-14 lg:px-20">
-        <div className="mx-auto max-w-7xl">
+      <section className="w-full bg-[#F7E7E2] px-5 py-20 sm:px-6 sm:py-24 md:px-14 md:py-28 lg:px-20">
+        <div className="mx-auto w-full max-w-7xl min-w-0">
           {/* HEADER */}
           <div className="mb-16">
             <div className="flex items-center gap-4">
@@ -341,7 +341,7 @@ export default function Contact() {
       </section>
 
       {/* ================= SOCIAL CTA ================= */}
-      <section className="px-8 py-28 text-center md:px-14 lg:px-20">
+      <section className="w-full px-5 py-20 text-center sm:px-6 sm:py-24 md:px-14 md:py-28 lg:px-20">
         <p className="text-[9px] font-semibold uppercase tracking-[0.4em] text-[#6B0F1A]">
           Follow The Journey
         </p>
@@ -366,7 +366,7 @@ export default function Contact() {
       </section>
 
       {/* ================= FOOTER ================= */}
-      <footer className="border-t border-[#C9A24A]/30 bg-[#FFFDF8] px-8 py-10 md:px-14 lg:px-20">
+      <footer className="w-full border-t border-[#C9A24A]/30 bg-[#FFFDF8] px-5 py-8 sm:px-6 sm:py-10 md:px-14 lg:px-20">
         <div className="mx-auto flex max-w-7xl flex-col gap-6 md:flex-row md:items-center md:justify-between">
           <div>
             <p className="font-serif text-3xl tracking-[0.12em] text-[#5A4636]">
