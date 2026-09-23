@@ -2,6 +2,18 @@ import Navbar from "@/components/Navbar";
 import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
+import {
+  Sparkles,
+  Users2,
+  CalendarCheck2,
+  Palette,
+  Gem,
+  Wand2,
+  ArrowUpRight,
+  PartyPopper,
+  ShieldCheck,
+  Camera,
+} from "lucide-react";
 
 export default function Home() {
   return (
@@ -12,7 +24,6 @@ export default function Home() {
           HERO
       ========================================================= */}
       <section className="relative min-h-screen overflow-hidden pt-24">
-        {/* HERO IMAGE */}
         <div className="absolute inset-0">
           <Image
             src="/images/hero/hero.png"
@@ -22,26 +33,25 @@ export default function Home() {
             sizes="100vw"
             className="object-cover object-center"
           />
-
           <div className="absolute inset-0 bg-gradient-to-r from-[#FFFDF8] via-[#FFFDF8]/90 via-[30%] via-[#FFFDF8]/45 via-[48%] to-transparent" />
         </div>
 
-        {/* HERO CONTENT */}
         <div className="relative z-10 flex min-h-[calc(100vh-6rem)] items-center">
           <div className="w-full px-8 md:px-14 lg:px-20 xl:px-24">
             <div className="max-w-[590px]">
-              {/* LABEL */}
               <Reveal direction="left" duration={0.9}>
                 <div className="mb-6 flex items-center gap-4">
+                  <Sparkles
+                    className="h-4 w-4 text-[#C9A24A]"
+                    strokeWidth={1.5}
+                  />
                   <span className="text-[9px] font-semibold uppercase tracking-[0.4em] text-[#6B0F1A]">
                     Aarambh Events & Production
                   </span>
-
                   <span className="h-px w-14 bg-[#C9A24A]" />
                 </div>
               </Reveal>
 
-              {/* MAIN TITLE */}
               <Reveal direction="left" delay={0.12} duration={1}>
                 <h1 className="font-serif text-[4.5rem] leading-[0.82] tracking-[-0.04em] text-[#5A4636] md:text-[6rem] lg:text-[7rem]">
                   Moments
@@ -52,22 +62,22 @@ export default function Home() {
                 </h1>
               </Reveal>
 
-              {/* DESCRIPTION */}
               <Reveal delay={0.28}>
                 <p className="mt-7 max-w-[390px] text-[14px] leading-7 text-[#5A4636]/75">
                   We design celebrations that bring together creativity,
-                  elegance and unforgettable experiences.
+                  elegance and unforgettable experiences — built around the
+                  story you want your guests to remember.
                 </p>
               </Reveal>
 
-              {/* BUTTONS */}
               <Reveal delay={0.42}>
                 <div className="mt-7 flex items-center gap-5">
                   <Link
                     href="/work"
-                    className="rounded-full bg-[#6B0F1A] px-7 py-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-white transition duration-300 hover:-translate-y-1 hover:bg-[#5A4636]"
+                    className="group inline-flex items-center gap-2 rounded-full bg-[#6B0F1A] px-7 py-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-white transition duration-300 hover:-translate-y-1 hover:bg-[#5A4636]"
                   >
-                    Explore Our Work →
+                    Explore Our Work
+                    <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </Link>
 
                   <Link
@@ -76,6 +86,42 @@ export default function Home() {
                   >
                     Discover Aarambh
                   </Link>
+                </div>
+              </Reveal>
+
+              {/* TRUST STRIP — breaks up the empty space below the CTAs */}
+              <Reveal delay={0.56}>
+                <div className="mt-14 flex flex-wrap items-center gap-x-10 gap-y-4 border-t border-[#5A4636]/10 pt-6">
+                  <div className="flex items-center gap-2.5">
+                    <PartyPopper
+                      className="h-4 w-4 text-[#C9A24A]"
+                      strokeWidth={1.5}
+                    />
+                    <span className="text-[11px] text-[#5A4636]/70">
+                      <span className="font-semibold text-[#5A4636]">250+</span>{" "}
+                      events crafted
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2.5">
+                    <Users2
+                      className="h-4 w-4 text-[#C9A24A]"
+                      strokeWidth={1.5}
+                    />
+                    <span className="text-[11px] text-[#5A4636]/70">
+                      <span className="font-semibold text-[#5A4636]">180+</span>{" "}
+                      happy families
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2.5">
+                    <CalendarCheck2
+                      className="h-4 w-4 text-[#C9A24A]"
+                      strokeWidth={1.5}
+                    />
+                    <span className="text-[11px] text-[#5A4636]/70">
+                      <span className="font-semibold text-[#5A4636]">8+</span>{" "}
+                      years in business
+                    </span>
+                  </div>
                 </div>
               </Reveal>
             </div>
@@ -88,14 +134,12 @@ export default function Home() {
       ========================================================= */}
       <section className="bg-[#FFFDF8] px-8 py-28 md:px-14 lg:px-20">
         <div className="mx-auto grid max-w-7xl items-center gap-16 lg:grid-cols-2">
-          {/* TEXT */}
           <div>
             <Reveal direction="right">
               <div className="mb-6 flex items-center gap-4">
                 <span className="text-[9px] font-semibold uppercase tracking-[0.35em] text-[#6B0F1A]">
-                  01 — The Vision
+                  The Vision
                 </span>
-
                 <span className="h-px w-14 bg-[#C9A24A]" />
               </div>
             </Reveal>
@@ -120,25 +164,51 @@ export default function Home() {
               </p>
             </Reveal>
 
-            <Reveal direction="right" delay={0.32}>
+            {/* ICON FEATURE ROW — replaces a plain link with something more tactile */}
+            <Reveal direction="right" delay={0.3}>
+              <div className="mt-9 grid grid-cols-3 gap-6 border-t border-[#5A4636]/10 pt-7">
+                <div>
+                  <Palette
+                    className="h-5 w-5 text-[#6B0F1A]"
+                    strokeWidth={1.5}
+                  />
+                  <p className="mt-3 text-[11px] font-semibold uppercase tracking-[0.1em] text-[#5A4636]">
+                    Design
+                  </p>
+                </div>
+                <div>
+                  <Gem className="h-5 w-5 text-[#6B0F1A]" strokeWidth={1.5} />
+                  <p className="mt-3 text-[11px] font-semibold uppercase tracking-[0.1em] text-[#5A4636]">
+                    Décor
+                  </p>
+                </div>
+                <div>
+                  <Wand2 className="h-5 w-5 text-[#6B0F1A]" strokeWidth={1.5} />
+                  <p className="mt-3 text-[11px] font-semibold uppercase tracking-[0.1em] text-[#5A4636]">
+                    Execution
+                  </p>
+                </div>
+              </div>
+            </Reveal>
+
+            <Reveal direction="right" delay={0.4}>
               <Link
                 href="/about"
-                className="mt-8 inline-block text-[10px] font-semibold uppercase tracking-[0.2em] text-[#5A4636] underline decoration-[#C9A24A] underline-offset-8 transition hover:text-[#6B0F1A]"
+                className="mt-9 inline-block text-[10px] font-semibold uppercase tracking-[0.2em] text-[#5A4636] underline decoration-[#C9A24A] underline-offset-8 transition hover:text-[#6B0F1A]"
               >
                 Discover Aarambh →
               </Link>
             </Reveal>
           </div>
 
-          {/* IMAGE */}
           <Reveal direction="left" delay={0.15} duration={1}>
-            <div className="group relative h-[500px] overflow-hidden">
+            <div className="group relative h-[320px] w-full overflow-hidden rounded-2xl bg-[#F7E7E2] sm:h-[400px] md:h-[500px]">
               <Image
                 src="/images/about/aarambh2.png"
                 alt="Aarambh Event Experience"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover transition duration-1000 group-hover:scale-105"
+                className="object-contain p-8 transition duration-700 group-hover:scale-105 sm:p-12"
               />
             </div>
           </Reveal>
@@ -146,90 +216,85 @@ export default function Home() {
       </section>
 
       {/* =========================================================
-          SELECTED WORK
+          SELECTED WORK — asymmetric bento instead of 3 equal boxes
       ========================================================= */}
       <section className="bg-[#F7E7E2] px-8 py-28 md:px-14 lg:px-20">
         <div className="mx-auto max-w-7xl">
-          {/* HEADER */}
           <Reveal>
             <div className="mb-14 flex items-end justify-between">
               <div>
                 <span className="text-[9px] font-semibold uppercase tracking-[0.35em] text-[#6B0F1A]">
-                  02 — Selected Work
+                  Selected Work
                 </span>
-
                 <h2 className="mt-4 font-serif text-5xl text-[#5A4636] md:text-6xl">
                   Moments We Create
                 </h2>
               </div>
-
               <Link
                 href="/work"
-                className="hidden text-[10px] font-semibold uppercase tracking-[0.2em] text-[#5A4636] underline decoration-[#C9A24A] underline-offset-8 transition hover:text-[#6B0F1A] md:block"
+                className="hidden items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#5A4636] underline decoration-[#C9A24A] underline-offset-8 transition hover:text-[#6B0F1A] md:flex"
               >
-                View All Work →
+                View All Work <ArrowUpRight className="h-3.5 w-3.5" />
               </Link>
             </div>
           </Reveal>
 
-          {/* CARDS */}
-          <div className="grid gap-6 md:grid-cols-3">
-            {/* WEDDING */}
-            <Reveal delay={0}>
+          <div className="grid gap-6 md:grid-cols-2">
+            {/* Large feature card */}
+            <Reveal delay={0} className="md:row-span-2">
               <Link
                 href="/work"
-                className="group relative block h-[430px] overflow-hidden"
+                className="group relative block h-[430px] overflow-hidden md:h-full"
               >
                 <Image
                   src="/images/work/wedding.jpg"
                   alt="Wedding"
                   fill
-                  sizes="33vw"
+                  sizes="50vw"
                   className="object-cover transition duration-1000 group-hover:scale-105"
                 />
-
+                <div className="absolute right-5 top-5 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 opacity-0 transition duration-300 group-hover:opacity-100">
+                  <ArrowUpRight className="h-4 w-4 text-[#6B0F1A]" />
+                </div>
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-7">
                   <p className="font-serif text-3xl text-white">Weddings</p>
                 </div>
               </Link>
             </Reveal>
 
-            {/* RECEPTION */}
+            {/* Two stacked smaller cards */}
             <Reveal delay={0.12}>
               <Link
                 href="/work"
-                className="group relative block h-[430px] overflow-hidden"
+                className="group relative block h-[200px] overflow-hidden"
               >
                 <Image
                   src="/images/work/reception.jpg"
                   alt="Reception"
                   fill
-                  sizes="33vw"
+                  sizes="50vw"
                   className="object-cover transition duration-1000 group-hover:scale-105"
                 />
-
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-7">
-                  <p className="font-serif text-3xl text-white">Receptions</p>
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-6">
+                  <p className="font-serif text-2xl text-white">Receptions</p>
                 </div>
               </Link>
             </Reveal>
 
-            {/* MANDAP */}
             <Reveal delay={0.24}>
               <Link
                 href="/work"
-                className="group relative block h-[430px] overflow-hidden"
+                className="group relative block h-[200px] overflow-hidden"
               >
                 <Image
                   src="/images/work/mandap.jpg"
                   alt="Mandap"
                   fill
-                  sizes="33vw"
+                  sizes="50vw"
                   className="object-cover transition duration-1000 group-hover:scale-105"
                 />
-
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-7">
-                  <p className="font-serif text-3xl text-white">Mandaps</p>
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-6">
+                  <p className="font-serif text-2xl text-white">Mandaps</p>
                 </div>
               </Link>
             </Reveal>
@@ -245,13 +310,12 @@ export default function Home() {
           <Reveal direction="right">
             <div className="mb-14">
               <div className="flex items-center gap-4">
+                <Gem className="h-4 w-4 text-[#C9A24A]" strokeWidth={1.5} />
                 <span className="text-[9px] font-semibold uppercase tracking-[0.35em] text-[#6B0F1A]">
-                  03 — Signature Setups
+                  Signature Setups
                 </span>
-
                 <span className="h-px w-14 bg-[#C9A24A]" />
               </div>
-
               <h2 className="mt-5 max-w-3xl font-serif text-5xl leading-[0.9] text-[#5A4636] md:text-7xl">
                 Designed To Be
                 <br />
@@ -261,107 +325,59 @@ export default function Home() {
           </Reveal>
 
           <div className="grid gap-6 md:grid-cols-3">
-            {/* ROYAL RECEPTION */}
-            <Reveal delay={0}>
-              <Link
-                href="/work"
-                className="group relative block h-[520px] overflow-hidden"
-              >
-                <Image
-                  src="/images/work/reception.jpg"
-                  alt="Royal Reception"
-                  fill
-                  sizes="33vw"
-                  className="object-cover transition duration-1000 group-hover:scale-105"
-                />
-
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/5 to-transparent" />
-
-                <div className="absolute bottom-0 p-8">
-                  <p className="text-[9px] uppercase tracking-[0.3em] text-[#C9A24A]">
-                    Signature Setup 01
-                  </p>
-
-                  <h3 className="mt-3 font-serif text-4xl text-white">
-                    Royal Reception
-                  </h3>
-                </div>
-              </Link>
-            </Reveal>
-
-            {/* GRAND MANDAP */}
-            <Reveal delay={0.12}>
-              <Link
-                href="/work"
-                className="group relative block h-[520px] overflow-hidden"
-              >
-                <Image
-                  src="/images/work/mandap.jpg"
-                  alt="Grand Mandap"
-                  fill
-                  sizes="33vw"
-                  className="object-cover transition duration-1000 group-hover:scale-105"
-                />
-
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/5 to-transparent" />
-
-                <div className="absolute bottom-0 p-8">
-                  <p className="text-[9px] uppercase tracking-[0.3em] text-[#C9A24A]">
-                    Signature Setup 02
-                  </p>
-
-                  <h3 className="mt-3 font-serif text-4xl text-white">
-                    Grand Mandap
-                  </h3>
-                </div>
-              </Link>
-            </Reveal>
-
-            {/* LUXURY LOUNGE */}
-            <Reveal delay={0.24}>
-              <Link
-                href="/work"
-                className="group relative block h-[520px] overflow-hidden"
-              >
-                <Image
-                  src="/images/work/wedding.jpg"
-                  alt="Luxury Lounge"
-                  fill
-                  sizes="33vw"
-                  className="object-cover transition duration-1000 group-hover:scale-105"
-                />
-
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/5 to-transparent" />
-
-                <div className="absolute bottom-0 p-8">
-                  <p className="text-[9px] uppercase tracking-[0.3em] text-[#C9A24A]">
-                    Signature Setup 03
-                  </p>
-
-                  <h3 className="mt-3 font-serif text-4xl text-white">
-                    Luxury Lounge
-                  </h3>
-                </div>
-              </Link>
-            </Reveal>
+            {[
+              {
+                img: "reception.jpg",
+                alt: "Royal Reception",
+                label: "Royal Reception",
+              },
+              { img: "mandap.jpg", alt: "Grand Mandap", label: "Grand Mandap" },
+              {
+                img: "wedding.jpg",
+                alt: "Luxury Lounge",
+                label: "Luxury Lounge",
+              },
+            ].map((item, i) => (
+              <Reveal delay={i * 0.12} key={item.label}>
+                <Link
+                  href="/work"
+                  className="group relative block h-[520px] overflow-hidden"
+                >
+                  <Image
+                    src={`/images/work/${item.img}`}
+                    alt={item.alt}
+                    fill
+                    sizes="33vw"
+                    className="object-cover transition duration-1000 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/5 to-transparent" />
+                  <div className="absolute bottom-0 p-8">
+                    <p className="text-[9px] uppercase tracking-[0.3em] text-[#C9A24A]">
+                      Setup {String(i + 1).padStart(2, "0")}
+                    </p>
+                    <h3 className="mt-3 font-serif text-4xl text-white">
+                      {item.label}
+                    </h3>
+                  </div>
+                </Link>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
 
       {/* =========================================================
-          WHY AARAMBH
+          WHY AARAMBH — numbers swapped for icons
       ========================================================= */}
       <section className="bg-[#5A4636] px-8 py-28 text-[#FFFDF8] md:px-14 lg:px-20">
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-16 lg:grid-cols-[0.8fr_1.2fr]">
-            {/* LEFT */}
             <Reveal direction="right">
               <div>
                 <div className="flex items-center gap-4">
                   <span className="text-[9px] font-semibold uppercase tracking-[0.35em] text-[#C9A24A]">
-                    04 — Why Aarambh
+                    Why Aarambh
                   </span>
-
                   <span className="h-px w-14 bg-[#C9A24A]" />
                 </div>
 
@@ -378,64 +394,46 @@ export default function Home() {
               </div>
             </Reveal>
 
-            {/* RIGHT */}
             <div className="grid border-t border-white/15 md:grid-cols-2">
-              <Reveal delay={0}>
-                <div className="border-b border-white/15 py-8 md:border-r md:pr-10">
-                  <span className="text-[10px] text-[#C9A24A]">01</span>
-
-                  <h3 className="mt-5 font-serif text-4xl">Creative Vision</h3>
-
-                  <p className="mt-4 text-sm leading-7 text-white/55">
-                    Concepts shaped around your occasion, personality and
-                    celebration.
-                  </p>
-                </div>
-              </Reveal>
-
-              <Reveal delay={0.12}>
-                <div className="border-b border-white/15 py-8 md:pl-10">
-                  <span className="text-[10px] text-[#C9A24A]">02</span>
-
-                  <h3 className="mt-5 font-serif text-4xl">
-                    Premium Production
-                  </h3>
-
-                  <p className="mt-4 text-sm leading-7 text-white/55">
-                    Décor, lighting, furniture, staging and production brought
-                    together seamlessly.
-                  </p>
-                </div>
-              </Reveal>
-
-              <Reveal delay={0.24}>
-                <div className="border-b border-white/15 py-8 md:border-b-0 md:border-r md:pr-10">
-                  <span className="text-[10px] text-[#C9A24A]">03</span>
-
-                  <h3 className="mt-5 font-serif text-4xl">
-                    Attention To Detail
-                  </h3>
-
-                  <p className="mt-4 text-sm leading-7 text-white/55">
-                    From the smallest element to the complete venue experience.
-                  </p>
-                </div>
-              </Reveal>
-
-              <Reveal delay={0.36}>
-                <div className="py-8 md:pl-10">
-                  <span className="text-[10px] text-[#C9A24A]">04</span>
-
-                  <h3 className="mt-5 font-serif text-4xl">
-                    Seamless Execution
-                  </h3>
-
-                  <p className="mt-4 text-sm leading-7 text-white/55">
-                    Our team handles the details so you can be present in the
-                    moment.
-                  </p>
-                </div>
-              </Reveal>
+              {[
+                {
+                  icon: Palette,
+                  title: "Creative Vision",
+                  copy: "Concepts shaped around your occasion, personality and celebration.",
+                },
+                {
+                  icon: PartyPopper,
+                  title: "Premium Production",
+                  copy: "Décor, lighting, furniture, staging and production brought together seamlessly.",
+                },
+                {
+                  icon: Gem,
+                  title: "Attention To Detail",
+                  copy: "From the smallest element to the complete venue experience.",
+                },
+                {
+                  icon: ShieldCheck,
+                  title: "Seamless Execution",
+                  copy: "Our team handles the details so you can be present in the moment.",
+                },
+              ].map((item, i) => (
+                <Reveal delay={i * 0.12} key={item.title}>
+                  <div
+                    className={`py-8 ${
+                      i % 2 === 0 ? "md:border-r md:pr-10" : "md:pl-10"
+                    } ${i < 2 ? "border-b border-white/15" : ""}`}
+                  >
+                    <item.icon
+                      className="h-6 w-6 text-[#C9A24A]"
+                      strokeWidth={1.5}
+                    />
+                    <h3 className="mt-5 font-serif text-4xl">{item.title}</h3>
+                    <p className="mt-4 text-sm leading-7 text-white/55">
+                      {item.copy}
+                    </p>
+                  </div>
+                </Reveal>
+              ))}
             </div>
           </div>
         </div>
@@ -450,13 +448,15 @@ export default function Home() {
             <div className="mb-14 flex flex-col justify-between gap-6 md:flex-row md:items-end">
               <div>
                 <div className="flex items-center gap-4">
+                  <Camera
+                    className="h-4 w-4 text-[#C9A24A]"
+                    strokeWidth={1.5}
+                  />
                   <span className="text-[9px] font-semibold uppercase tracking-[0.35em] text-[#6B0F1A]">
-                    05 — Gallery
+                    Gallery
                   </span>
-
                   <span className="h-px w-14 bg-[#C9A24A]" />
                 </div>
-
                 <h2 className="mt-5 font-serif text-6xl leading-[0.88] text-[#5A4636] md:text-7xl">
                   Moments.
                   <br />
@@ -473,7 +473,6 @@ export default function Home() {
             </div>
           </Reveal>
 
-          {/* CATEGORY LINKS */}
           <Reveal delay={0.1}>
             <div className="mb-10 flex flex-wrap gap-3">
               {[
@@ -501,7 +500,6 @@ export default function Home() {
             </div>
           </Reveal>
 
-          {/* GALLERY IMAGES */}
           <div className="grid gap-5 md:grid-cols-12">
             <Reveal direction="right" className="md:col-span-7">
               <div className="group relative h-[500px] overflow-hidden">
@@ -512,7 +510,6 @@ export default function Home() {
                   sizes="58vw"
                   className="object-cover transition duration-1000 group-hover:scale-105"
                 />
-
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-7">
                   <p className="font-serif text-3xl text-white">Wedding</p>
                 </div>
@@ -528,7 +525,6 @@ export default function Home() {
                   sizes="42vw"
                   className="object-cover transition duration-1000 group-hover:scale-105"
                 />
-
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-7">
                   <p className="font-serif text-3xl text-white">Celebration</p>
                 </div>
@@ -543,9 +539,12 @@ export default function Home() {
       ========================================================= */}
       <section className="bg-[#6B0F1A] px-8 py-32 text-center">
         <Reveal>
-          <p className="text-[9px] uppercase tracking-[0.35em] text-[#C9A24A]">
-            Let&apos;s Create Something Beautiful
-          </p>
+          <div className="flex items-center justify-center gap-2.5">
+            <Sparkles className="h-4 w-4 text-[#C9A24A]" strokeWidth={1.5} />
+            <p className="text-[9px] uppercase tracking-[0.35em] text-[#C9A24A]">
+              Let&apos;s Create Something Beautiful
+            </p>
+          </div>
         </Reveal>
 
         <Reveal delay={0.12}>
@@ -566,9 +565,10 @@ export default function Home() {
         <Reveal delay={0.38}>
           <Link
             href="/contact"
-            className="mt-10 inline-block rounded-full border border-[#C9A24A] px-8 py-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-white transition duration-300 hover:-translate-y-1 hover:bg-[#C9A24A] hover:text-[#5A4636]"
+            className="group mt-10 inline-flex items-center gap-2 rounded-full border border-[#C9A24A] px-8 py-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-white transition duration-300 hover:-translate-y-1 hover:bg-[#C9A24A] hover:text-[#5A4636]"
           >
-            Start A Conversation →
+            Start A Conversation
+            <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
         </Reveal>
       </section>
