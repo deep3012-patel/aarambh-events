@@ -33,6 +33,11 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env*
 
+# Runtime gallery CMS content
+/data/gallery.json
+/public/uploads/gallery/*
+!/public/uploads/gallery/.gitkeep
+
 # vercel
 .vercel
 

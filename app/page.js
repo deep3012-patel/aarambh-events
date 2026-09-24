@@ -202,7 +202,7 @@ export default function Home() {
           </div>
 
           <Reveal direction="left" delay={0.15} duration={1}>
-            <div className="group relative h-[320px] w-full overflow-hidden rounded-2xl bg-[#F7E7E2] sm:h-[400px] md:h-[500px]">
+            <div className="group relative h-[320px] w-full overflow-hidden rounded-2xl bg-[#F7E7E2] sm:h-[400px] md:h-[400px]">
               <Image
                 src="/images/about/aarambh2.png"
                 alt="Aarambh Event Experience"

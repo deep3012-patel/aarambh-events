@@ -18,6 +18,22 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
+## Gallery admin
+
+The gallery can be managed at `/admin/gallery`. Before starting the app, copy
+`.env.example` to `.env.local` and set a strong `ADMIN_PASSWORD` and
+`ADMIN_SESSION_SECRET`.
+
+The admin can upload up to 12 JPG, PNG, WEBP, or AVIF images at a time (8 MB
+each), update each image's title/category/description, hide it from the public
+gallery, or delete it. Gallery metadata and uploaded files are stored locally
+in `data/gallery.json` and `public/uploads/gallery`.
+
+This storage mode is suitable for a persistent Node server or local hosting.
+For a serverless deployment, connect the upload functions in
+`lib/gallery-store.js` to persistent object storage before using the admin in
+production.
+
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
 ## Learn More

@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useMemo } from "react";
+import { Suspense, useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -211,8 +211,35 @@ const galleryItems = [
 
 function GalleryContent() {
   const searchParams = useSearchParams();
+  const [managedGalleryItems, setManagedGalleryItems] = useState(galleryItems);
 
   const urlCategory = searchParams.get("category");
+
+  useEffect(() => {
+    let isActive = true;
+
+    async function loadGallery() {
+      try {
+        const response = await fetch("/api/gallery", { cache: "no-store" });
+        if (!response.ok) {
+          return;
+        }
+
+        const data = await response.json();
+        if (isActive && Array.isArray(data.items)) {
+          setManagedGalleryItems(data.items);
+        }
+      } catch {
+        // Keep the built-in gallery visible if the CMS data is unavailable.
+      }
+    }
+
+    loadGallery();
+
+    return () => {
+      isActive = false;
+    };
+  }, []);
 
   const activeCategory =
     categories.find(
@@ -221,11 +248,11 @@ function GalleryContent() {
 
   const filteredItems = useMemo(() => {
     if (activeCategory === "All") {
-      return galleryItems;
+      return managedGalleryItems;
     }
 
-    return galleryItems.filter((item) => item.category === activeCategory);
-  }, [activeCategory]);
+    return managedGalleryItems.filter((item) => item.category === activeCategory);
+  }, [activeCategory, managedGalleryItems]);
 
   return (
     <main className="min-h-screen bg-[#FFFDF8]">
@@ -305,12 +332,12 @@ function GalleryContent() {
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {filteredItems.map((item, index) => (
               <div
-                key={`${item.category}-${index}`}
+                key={item.id || `${item.category}-${index}`}
                 className="group relative h-[460px] overflow-hidden"
               >
                 <Image
                   src={item.image}
-                  alt={item.title}
+                  alt={item.alt || item.title}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover transition duration-700 group-hover:scale-105"
