@@ -5,16 +5,30 @@ import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
+import {
+  Camera,
+  Sparkles,
+  LayoutGrid,
+  Heart,
+  Cake,
+  PartyPopper,
+  Wine,
+  Gem,
+  HeartHandshake,
+  Briefcase,
+  ImageOff,
+  ArrowUpRight,
+} from "lucide-react";
 
 const categories = [
-  "All",
-  "Wedding",
-  "Birthday",
-  "Party",
-  "Reception",
-  "Mandap",
-  "Engagement",
-  "Corporate",
+  { label: "All", icon: LayoutGrid },
+  { label: "Wedding", icon: Heart },
+  { label: "Birthday", icon: Cake },
+  { label: "Party", icon: PartyPopper },
+  { label: "Reception", icon: Wine },
+  { label: "Mandap", icon: Gem },
+  { label: "Engagement", icon: HeartHandshake },
+  { label: "Corporate", icon: Briefcase },
 ];
 
 const galleryItems = [
@@ -243,15 +257,17 @@ function GalleryContent() {
 
   const activeCategory =
     categories.find(
-      (category) => category.toLowerCase() === urlCategory?.toLowerCase(),
-    ) || "All";
+      (category) => category.label.toLowerCase() === urlCategory?.toLowerCase(),
+    )?.label || "All";
 
   const filteredItems = useMemo(() => {
     if (activeCategory === "All") {
       return managedGalleryItems;
     }
 
-    return managedGalleryItems.filter((item) => item.category === activeCategory);
+    return managedGalleryItems.filter(
+      (item) => item.category === activeCategory,
+    );
   }, [activeCategory, managedGalleryItems]);
 
   return (
@@ -264,10 +280,10 @@ function GalleryContent() {
       <section className="px-8 pb-16 pt-44 md:px-14 lg:px-20">
         <div className="mx-auto max-w-7xl">
           <div className="flex items-center gap-4">
+            <Camera className="h-4 w-4 text-[#C9A24A]" strokeWidth={1.5} />
             <span className="text-[9px] font-semibold uppercase tracking-[0.35em] text-[#6B0F1A]">
               Aarambh Gallery
             </span>
-
             <span className="h-px w-14 bg-[#C9A24A]" />
           </div>
 
@@ -290,20 +306,21 @@ function GalleryContent() {
       <section className="sticky top-24 z-30 border-y border-[#C9A24A]/20 bg-[#FFFDF8]/95 px-8 py-5 backdrop-blur-md md:px-14 lg:px-20">
         <div className="mx-auto flex max-w-7xl flex-wrap gap-3">
           {categories.map((category) => {
-            const isActive = activeCategory === category;
+            const isActive = activeCategory === category.label;
 
             return (
               <Link
-                key={category}
-                href={`/gallery?category=${category.toLowerCase()}`}
+                key={category.label}
+                href={`/gallery?category=${category.label.toLowerCase()}`}
                 scroll={false}
-                className={`rounded-full border px-5 py-2.5 text-[9px] font-semibold uppercase tracking-[0.18em] transition duration-300 ${
+                className={`inline-flex items-center gap-2 rounded-full border px-5 py-2.5 text-[9px] font-semibold uppercase tracking-[0.18em] transition duration-300 ${
                   isActive
                     ? "border-[#6B0F1A] bg-[#6B0F1A] text-white"
                     : "border-[#C9A24A]/50 text-[#5A4636] hover:border-[#6B0F1A] hover:bg-[#6B0F1A] hover:text-white"
                 }`}
               >
-                {category}
+                <category.icon className="h-3.5 w-3.5" strokeWidth={1.6} />
+                {category.label}
               </Link>
             );
           })}
@@ -322,9 +339,9 @@ function GalleryContent() {
 
             <Link
               href="/work"
-              className="hidden text-[9px] font-semibold uppercase tracking-[0.2em] text-[#5A4636] underline decoration-[#C9A24A] underline-offset-8 md:block"
+              className="hidden items-center gap-1.5 text-[9px] font-semibold uppercase tracking-[0.2em] text-[#5A4636] underline decoration-[#C9A24A] underline-offset-8 md:flex"
             >
-              Explore Our Work →
+              Explore Our Work <ArrowUpRight className="h-3 w-3" />
             </Link>
           </div>
 
@@ -333,7 +350,7 @@ function GalleryContent() {
             {filteredItems.map((item, index) => (
               <div
                 key={item.id || `${item.category}-${index}`}
-                className="group relative h-[460px] overflow-hidden"
+                className="group relative h-[320px] overflow-hidden sm:h-[380px] lg:h-[460px]"
               >
                 <Image
                   src={item.image}
@@ -349,7 +366,6 @@ function GalleryContent() {
                   <p className="text-[9px] uppercase tracking-[0.3em] text-[#C9A24A]">
                     {item.category}
                   </p>
-
                   <h2 className="mt-2 font-serif text-3xl text-white">
                     {item.title}
                   </h2>
@@ -360,11 +376,11 @@ function GalleryContent() {
 
           {/* EMPTY CATEGORY */}
           {filteredItems.length === 0 && (
-            <div className="py-32 text-center">
-              <p className="font-serif text-4xl text-[#5A4636]">
+            <div className="flex flex-col items-center py-32 text-center">
+              <ImageOff className="h-8 w-8 text-[#C9A24A]" strokeWidth={1.3} />
+              <p className="mt-6 font-serif text-4xl text-[#5A4636]">
                 More moments coming soon.
               </p>
-
               <p className="mt-4 text-sm text-[#5A4636]/50">
                 We are adding more experiences to this collection.
               </p>
@@ -377,9 +393,12 @@ function GalleryContent() {
           CTA
       ===================================================== */}
       <section className="bg-[#6B0F1A] px-8 py-28 text-center">
-        <p className="text-[9px] uppercase tracking-[0.35em] text-[#C9A24A]">
-          Create Your Own Moment
-        </p>
+        <div className="flex items-center justify-center gap-2.5">
+          <Sparkles className="h-4 w-4 text-[#C9A24A]" strokeWidth={1.5} />
+          <p className="text-[9px] uppercase tracking-[0.35em] text-[#C9A24A]">
+            Create Your Own Moment
+          </p>
+        </div>
 
         <h2 className="mx-auto mt-6 max-w-4xl font-serif text-5xl leading-[0.9] text-white md:text-7xl">
           Your Celebration.
@@ -389,9 +408,10 @@ function GalleryContent() {
 
         <Link
           href="/contact"
-          className="mt-10 inline-block rounded-full border border-[#C9A24A] px-8 py-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-white transition hover:bg-[#C9A24A] hover:text-[#5A4636]"
+          className="group mt-10 inline-flex items-center gap-2 rounded-full border border-[#C9A24A] px-8 py-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-white transition hover:bg-[#C9A24A] hover:text-[#5A4636]"
         >
-          Start A Conversation →
+          Start A Conversation
+          <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
         </Link>
       </section>
     </main>
