@@ -1,12 +1,25 @@
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
+import {
+  Sparkles,
+  MessageCircle,
+  Palette,
+  LayoutTemplate,
+  Sun,
+  Lightbulb,
+  Armchair,
+  Flower2,
+  Wand2,
+  ClipboardCheck,
+  ArrowUpRight,
+} from "lucide-react";
 
 const process = [
   {
     number: "01",
     title: "The First Meeting",
-    subtitle: "Let’s Meet & Understand",
+    subtitle: "Let's Meet & Understand",
     description:
       "Everything begins with a conversation. Our team meets you to understand your occasion, expectations, style and the experience you want to create.",
     image: "/images/process/meeting.png",
@@ -33,7 +46,7 @@ const process = [
   {
     number: "04",
     title: "Concept & Approval",
-    subtitle: "Let’s Make It Official",
+    subtitle: "Let's Make It Official",
     description:
       "Once the creative direction is finalised, we discuss the plan and move forward with the selected concept and event requirements.",
     image: "/images/process/approval.png",
@@ -86,6 +99,17 @@ const process = [
   },
 ];
 
+const handleItems = [
+  { label: "Concept & Design", icon: Palette },
+  { label: "Stage & Mandap", icon: LayoutTemplate },
+  { label: "Décor & Styling", icon: Sparkles },
+  { label: "Lighting", icon: Lightbulb },
+  { label: "Furniture & Seating", icon: Armchair },
+  { label: "Floral Styling", icon: Flower2 },
+  { label: "Production", icon: Wand2 },
+  { label: "Event Coordination", icon: ClipboardCheck },
+];
+
 export default function Services() {
   return (
     <main className="min-h-screen bg-[#FFFDF8]">
@@ -95,10 +119,10 @@ export default function Services() {
       <section className="px-8 pb-28 pt-40 md:px-14 lg:px-20">
         <div className="mx-auto max-w-7xl">
           <div className="mb-8 flex items-center gap-4">
+            <Sun className="h-4 w-4 text-[#C9A24A]" strokeWidth={1.5} />
             <span className="text-[9px] font-semibold uppercase tracking-[0.4em] text-[#6B0F1A]">
-              03 — The Aarambh Experience
+              The Aarambh Experience
             </span>
-
             <span className="h-px w-14 bg-[#C9A24A]" />
           </div>
 
@@ -120,7 +144,6 @@ export default function Services() {
             <div className="md:flex md:justify-end">
               <div className="max-w-xs border-l border-[#C9A24A] pl-6">
                 <p className="font-serif text-4xl text-[#5A4636]">09</p>
-
                 <p className="mt-2 text-[9px] uppercase tracking-[0.25em] text-[#5A4636]/60">
                   Steps to Your Perfect Event
                 </p>
@@ -135,9 +158,12 @@ export default function Services() {
         <div className="mx-auto max-w-7xl">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
-              <span className="text-[9px] font-semibold uppercase tracking-[0.35em] text-[#6B0F1A]">
-                How It Works
-              </span>
+              <div className="flex items-center gap-3">
+                <MessageCircle className="h-4 w-4 text-[#6B0F1A]" strokeWidth={1.5} />
+                <span className="text-[9px] font-semibold uppercase tracking-[0.35em] text-[#6B0F1A]">
+                  How It Works
+                </span>
+              </div>
 
               <h2 className="mt-5 font-serif text-5xl leading-[0.9] text-[#5A4636] md:text-7xl">
                 A Thoughtful
@@ -177,7 +203,7 @@ export default function Services() {
 
                   {/* IMAGE */}
                   <div
-                    className={`relative h-[480px] w-full overflow-hidden bg-[#F7E7E2] ${
+                    className={`relative h-[320px] w-full overflow-hidden bg-[#F7E7E2] sm:h-[400px] lg:h-[480px] ${
                       step.side === "right" ? "lg:order-2" : "lg:order-1"
                     }`}
                   >
@@ -235,10 +261,10 @@ export default function Services() {
         <div className="mx-auto max-w-7xl">
           <div className="mb-16">
             <div className="flex items-center gap-4">
+              <Wand2 className="h-4 w-4 text-[#C9A24A]" strokeWidth={1.5} />
               <span className="text-[9px] font-semibold uppercase tracking-[0.35em] text-[#6B0F1A]">
                 What We Bring Together
               </span>
-
               <span className="h-px w-14 bg-[#C9A24A]" />
             </div>
 
@@ -250,23 +276,17 @@ export default function Services() {
           </div>
 
           <div className="grid gap-x-12 gap-y-12 md:grid-cols-2 lg:grid-cols-4">
-            {[
-              "Concept & Design",
-              "Stage & Mandap",
-              "Décor & Styling",
-              "Lighting",
-              "Furniture & Seating",
-              "Floral Styling",
-              "Production",
-              "Event Coordination",
-            ].map((item, index) => (
-              <div key={item} className="border-t border-[#C9A24A]/40 pt-5">
-                <span className="font-serif text-2xl text-[#C9A24A]">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-
+            {handleItems.map((item) => (
+              <div
+                key={item.label}
+                className="group border-t border-[#C9A24A]/40 pt-5"
+              >
+                <item.icon
+                  className="h-7 w-7 text-[#C9A24A] transition duration-500 group-hover:text-[#6B0F1A]"
+                  strokeWidth={1.4}
+                />
                 <h3 className="mt-4 font-serif text-2xl text-[#5A4636]">
-                  {item}
+                  {item.label}
                 </h3>
               </div>
             ))}
@@ -276,9 +296,12 @@ export default function Services() {
 
       {/* ================= FINAL CTA ================= */}
       <section className="bg-[#6B0F1A] px-8 py-32 text-center">
-        <p className="text-[9px] uppercase tracking-[0.4em] text-[#C9A24A]">
-          Your Event Starts Here
-        </p>
+        <div className="flex items-center justify-center gap-2.5">
+          <Sparkles className="h-4 w-4 text-[#C9A24A]" strokeWidth={1.5} />
+          <p className="text-[9px] uppercase tracking-[0.4em] text-[#C9A24A]">
+            Your Event Starts Here
+          </p>
+        </div>
 
         <h2 className="mx-auto mt-7 max-w-5xl font-serif text-5xl leading-[0.95] text-white md:text-7xl lg:text-8xl">
           Let&apos;s Begin
@@ -293,9 +316,10 @@ export default function Services() {
 
         <Link
           href="/contact"
-          className="mt-10 inline-block rounded-full border border-[#C9A24A] px-9 py-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-white transition duration-300 hover:bg-[#C9A24A]"
+          className="group mt-10 inline-flex items-center gap-2 rounded-full border border-[#C9A24A] px-9 py-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-white transition duration-300 hover:bg-[#C9A24A]"
         >
-          Start A Conversation →
+          Start A Conversation
+          <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
         </Link>
       </section>
     </main>
